@@ -822,11 +822,11 @@
 <button class="reward-redeem" onclick="redeemReward(this,1000,'$100 Summit Gift Card')">Redeem</button>
 </div>
 </div>
-</div><div class="reward-body"><div class="reward-name">' + r.name + '</div><div class="reward-pts">' + r.points_cost.toLocaleString() + ' pts</div><button class="reward-redeem" onclick="redeemReward(this,' + r.points_cost + ',"\''+ r.name +'\'","' + r.id + '")">Redeem</button></div></div>';
-    }).join("");
-  } catch(e) { console.error("Error loading rewards:", e); }
-}
-
+</div>
+</div>
+</div>
+</div>
+<script>
 async function loadAdminData() {
   if (!window._currentProfile || window._currentProfile.role !== "admin") return;
   try {
