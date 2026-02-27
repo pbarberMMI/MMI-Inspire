@@ -434,7 +434,7 @@
 
   <!-- Status bar -->
   <div class="status-bar">
-    <div class="status-time">9:41</div>
+    <div class="status-time" id="status-clock">9:41</div>
     <div class="status-icons">
       <svg width="16" height="12" viewBox="0 0 16 12" fill="white"><rect x="0" y="4" width="3" height="8" rx="1"/><rect x="4.5" y="2.5" width="3" height="9.5" rx="1"/><rect x="9" y="0.5" width="3" height="11.5" rx="1"/><rect x="13.5" y="0" width="2.5" height="12" rx="1" fill="rgba(255,255,255,0.4)"/></svg>
       🔋
@@ -1209,6 +1209,20 @@ function showToast(msg) {
   setTimeout(function(){ t.classList.remove("show"); }, 2500);
 }
 
+// Live clock
+function updateClock() {
+  var el = document.getElementById("status-clock");
+  if (el) {
+    var now = new Date();
+    var h = now.getHours();
+    var m = now.getMinutes();
+    var ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+    el.textContent = h + ":" + (m < 10 ? "0" + m : m) + " " + ampm;
+  }
+}
+updateClock();
+setInterval(updateClock, 1000);
 window.addEventListener("DOMContentLoaded", initApp);
 </script>
 </body>
